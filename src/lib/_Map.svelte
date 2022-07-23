@@ -53,12 +53,12 @@
 		</ul>
 
 		<p>
-			Å varme opp vannet for en 10 minutters dusj som bruker ca 10 liter i minuttet koster nå ca <strong
-				>{round2dec(winner.price_NOK_KWh * 4)},-</strong
-			>
+			Å varme opp vannet for en 10 minutters dusj som bruker ca 10 liter i minuttet koster nå <em
+				title="markeds prisen"
+				>uten påslag
+			</em>
+			ca <strong>{round2dec(winner.price_NOK_KWh * 4)},-</strong>
 			i sone {winner.name} eller <strong>{round2dec(looser.price_NOK_KWh * 4)},-</strong> i {looser.name}.
-
-			<cite>https://www.enok.no/enokguiden</cite>
 		</p>
 	</div>
 {/if}
@@ -100,13 +100,6 @@
 		font-weight: bold;
 	}
 
-	li > p {
-		margin: 0;
-		font-size: 1.6em;
-		font-weight: bold;
-		color: var(--p);
-	}
-
 	ul {
 		height: 100%;
 		width: 100%;
@@ -144,6 +137,15 @@
 		box-shadow: 2px 2px 7px -2px rgba(0, 0, 0, 0.7);
 	}
 
+	li > p {
+		margin: 0;
+		font-size: 1.6em;
+		font-weight: bold;
+		color: var(--p);
+
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+	}
+
 	li.winner {
 		border: rgba(0, 0, 0, 0.3) solid 3px;
 	}
@@ -171,11 +173,6 @@
 		word-spacing: 0.1em;
 
 		max-width: 40%;
-	}
-
-	div > p > cite {
-		font-size: 0.6em;
-		color: var(--path);
 	}
 
 	.NO1 {

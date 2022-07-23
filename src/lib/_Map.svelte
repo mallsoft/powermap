@@ -32,7 +32,7 @@
 
 {#if entries}
 	<div class="powermap">
-		<svg viewBox="0 0 600 750">
+		<svg viewBox="0 0 600 750" width="600px">
 			<desc>Map of power prices in Norway in NOK per kWh.</desc>
 			{#each entries as { name, price_NOK_KWh } (name)}
 				<path d={d[name]}>
@@ -81,6 +81,8 @@
 	svg {
 		display: block;
 		max-width: 600px;
+		min-width: 330px;
+		width: 100%;
 
 		fill: var(--path);
 		stroke: rgba(255, 255, 255, 0.5);

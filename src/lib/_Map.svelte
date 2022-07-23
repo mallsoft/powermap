@@ -17,8 +17,12 @@
 		return 0;
 	});
 
-	$: curentWinner = entries.reduce((acc: MapEntry, cur: MapEntry) => {
+	$: winner = entries.reduce((acc: MapEntry, cur: MapEntry) => {
 		return acc.price_NOK_KWh > cur.price_NOK_KWh ? acc : cur;
+	});
+
+	$: looser = entries.reduce((acc: MapEntry, cur: MapEntry) => {
+		return acc.price_NOK_KWh < cur.price_NOK_KWh ? acc : cur;
 	});
 
 	function round2dec(n: number): string {
@@ -39,7 +43,7 @@
 
 		<ul>
 			{#each entries as { name, price_NOK_KWh }}
-				<li class={name}>
+				<li class={name} class:winner={winner.name === name}>
 					<h2 class="name">{name}</h2>
 					<p class="price">
 						{round2dec(price_NOK_KWh)}
@@ -47,6 +51,15 @@
 				</li>
 			{/each}
 		</ul>
+
+		<p>
+			Å varme opp vannet for en 10 minutters dusj som bruker ca 10 liter i minuttet koster nå ca <strong
+				>{round2dec(winner.price_NOK_KWh * 4)},-</strong
+			>
+			i sone {winner.name} eller <strong>{round2dec(looser.price_NOK_KWh * 4)},-</strong> i {looser.name}.
+
+			<cite>https://www.enok.no/enokguiden</cite>
+		</p>
 	</div>
 {/if}
 
@@ -87,7 +100,7 @@
 		font-weight: bold;
 	}
 
-	p {
+	li > p {
 		margin: 0;
 		font-size: 1.6em;
 		font-weight: bold;
@@ -129,6 +142,29 @@
 		border: rgba(0, 0, 0, 0.1) solid 2px;
 
 		box-shadow: 2px 2px 7px -2px rgba(0, 0, 0, 0.7);
+	}
+
+	div > p {
+		position: absolute;
+		top: 35%;
+		right: 3%;
+
+		margin: 0;
+
+		font-family: var(--hfont);
+
+		padding: 8px;
+		color: var(--h1);
+
+		line-height: 1.4;
+		word-spacing: 0.1em;
+
+		max-width: 40%;
+	}
+
+	div > p > cite {
+		font-size: 0.6em;
+		color: var(--path);
 	}
 
 	.NO1 {

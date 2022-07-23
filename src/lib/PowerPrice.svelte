@@ -72,7 +72,7 @@
 </script>
 
 <section>
-	<h1>Nåværende kraftpris (nok/kWh)</h1>
+	<h1>Nåværende kraftpris (nok/kWt)</h1>
 	{#await promise}
 		<p>...loading data ⚡..</p>
 	{:then value}

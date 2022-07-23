@@ -72,7 +72,7 @@
 		--h1: #961938;
 		--p: #ffffff;
 		--li: #e44c4c;
-		--path: #7a9dff;
+		--path: #4e7cfc;
 
 		position: relative;
 		max-width: max-content;
@@ -144,6 +144,17 @@
 		box-shadow: 2px 2px 7px -2px rgba(0, 0, 0, 0.7);
 	}
 
+	li.winner {
+		border: rgba(0, 0, 0, 0.3) solid 3px;
+	}
+
+	li.winner::after {
+		font-size: 2em;
+		content: '🏆';
+		position: absolute;
+		top: -1em;
+	}
+
 	div > p {
 		position: absolute;
 		top: 35%;
@@ -170,25 +181,30 @@
 	.NO1 {
 		top: 72%;
 		left: 32%;
+		transform: rotate(10deg);
 	}
 
 	.NO2 {
 		top: 90%;
 		left: 14%;
+		transform: rotate(-5deg);
 	}
 
 	.NO3 {
 		top: 55%;
 		left: 10%;
+		transform: rotate(10deg);
 	}
 
 	.NO4 {
 		top: 10%;
 		left: 50%;
+		transform: rotate(10deg);
 	}
 
 	.NO5 {
 		top: 73%;
 		left: 0%;
+		transform: rotate(-10deg);
 	}
 </style>

@@ -25,7 +25,8 @@
 <Citations>
 	https://fixer.io/ - API for currency conversion
 	https://transparency.entsoe.eu/- Day ahead prices (EUR/MWh)
-	https://mallsoft.dev/ - for more info
+	https://github.com/mallsoft/powerapi - API for power prices
+	https://github.com/mallsoft/powermap - Svelte component frontend thing
 </Citations>
 	`);
 	}
